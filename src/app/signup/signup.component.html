@@ -1,0 +1,45 @@
+<div class="row m-0 p-3" style="">
+  <div class="col-md-4 col-sm-4 col-xl-4"></div>
+  <div class="col-md-4 col-sm-4 col-xl-4">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>SignUp</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="isError">
+          password & repassword is incorrectS
+        </div>
+        <form [formGroup]="signup">
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" placeholder="name">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" formControlName="email" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Create Password</mat-label>
+            <input matInput #password maxlength="10" placeholder="Password" formControlName="password">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Conform Password</mat-label>
+            <input matInput #password maxlength="10" placeholder="rePassword" formControlName="repassword">
+          </mat-form-field>
+      </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="onSubmit(signup)">
+          <a routerLink="/login">LogIn</a>
+        </button>
+        <button class="btn btn-primary" (click)="onSubmit(signup)">Submit</button> 
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div class="col-md-4 col-sm-4 col-xl-4"></div>
+</div>
+
+
+
+
+  

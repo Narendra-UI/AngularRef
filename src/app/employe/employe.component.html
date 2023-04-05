@@ -1,0 +1,66 @@
+<form [formGroup]="myForm">
+  <div>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="empName" placeholder="Your name">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Designation</mat-label>
+      <input matInput formControlName="empDesignation" placeholder="Your designation">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Department</mat-label>
+      <input matInput formControlName="empDepartment" placeholder="Your department">
+    </mat-form-field>
+  </div>
+  
+  <button class="btn btn-primary" (click)="onSubmit(myForm)">Submit</button>
+  &nbsp;
+  <button class="btn btn-success" (click)="myUpdateFunction(myForm)">Update</button>
+</form>
+<div *ngIf="showLoader">
+  <mat-spinner ></mat-spinner>
+</div>
+<br>
+<hr>
+
+<div style="height:255px;overflow: scroll;">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="empName">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.empName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="empDesignation">
+      <th mat-header-cell *matHeaderCellDef> Designation</th>
+      <td mat-cell *matCellDef="let element"> {{element.empDesignation}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="empDepartment">
+      <th mat-header-cell *matHeaderCellDef> Department </th>
+      <td mat-cell *matCellDef="let element"> {{element.empDepartment}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let user">
+          <button class="btn btn-danger" (click)="delete(user.id)">Delete</button>
+          <button class="btn btn-success" (click)="getbyid(user.id)">Update</button>
+          <button class="btn btn-info" (click)="getbyidview(user.id)">View</button>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>

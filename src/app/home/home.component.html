@@ -1,0 +1,65 @@
+<!-- <mat-sidenav-container class="container">
+    <mat-sidenav opened mode="side">
+            <a routerLink="/employe"><b>Employe</b></a><br/>
+            <a routerLink="/user"><b>User</b></a><br/>
+            <a routerLink="/tutorial"><b>Tutorial</b></a>
+    </mat-sidenav>  
+</mat-sidenav-container> -->
+  
+<div>
+  <mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    Project Practice (P P)
+  </mat-toolbar>
+    
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+        <h4 class="name">Srikanth</h4>
+        <p class="designation">Software Engineer Jio</p>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button">
+            <mat-icon>employe</mat-icon>
+            <span><a routerLink="/employe"><b>Employe</b></a></span>
+        </button>
+        <button mat-button class="menu-button">
+          <mat-icon>employees</mat-icon>
+          <span><a routerLink="/employees"><b>Employees</b></a></span>
+      </button>
+        <button mat-button class="menu-button">
+            <mat-icon>user</mat-icon>
+            <span><a routerLink="/user"><b>User</b></a></span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>tutorial</mat-icon>
+            <span><a routerLink="/tutorial"><b>Tutorial</b></a></span>
+        </button>
+        <button mat-button class="menu-button">
+          <mat-icon>role</mat-icon>
+          <span><a routerLink="/role"><b>Role</b></a></span>
+        </button>
+  
+        <!-- <mat-divider></mat-divider> -->
+  
+        <button mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+  
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class="content mat-elevation-z8">
+              <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+
+
